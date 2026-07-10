@@ -4,7 +4,7 @@
 
 <div align="center">
 
-# ☁️ AWS Internship at Center of Excellence - KIET
+# AWS Internship at Center of Excellence - KIET
 
 ### Hands-on AWS Projects | Cloud Security | Automation | Infrastructure as Code | Cloud Engineering
 
@@ -24,7 +24,7 @@
 
 ---
 
-# 📖 About
+# About
 
 This repository showcases the hands-on projects and practical implementations I completed during my **AWS Internship** conducted by the **Center of Excellence (CoE), Internship and Placement Cell, in collaboration with AWS Academy at KIET Group of Institutions**.
 
@@ -34,22 +34,21 @@ Each project in this repository includes detailed documentation, architecture di
 
 ---
 
-# 📑 Table of Contents
+# Table of Contents
 
-- [📖 About](#-about)
-- [🎯 Internship Objectives](#-internship-objectives)
-- [📂 Repository Structure](#-repository-structure)
-- [🚀 Projects Completed](#-projects-completed)
-- [🛠️ Skills Gained](#️-skills-gained)
-- [📈 Learning Journey](#-learning-journey)
-- [📚 Projects Overview](#-projects-overview)
-- [📄 Project Documentation](#-project-documentation)
-- [🎓 Key Learning Outcomes](#-key-learning-outcomes)
-- [🙏 Acknowledgements](#-acknowledgements)
+- [About](#-about)
+- [Internship Objectives](#-internship-objectives)
+- [Repository Structure](#-repository-structure)
+- [Projects Completed](#-projects-completed)
+- [Skills Gained](#️-skills-gained)
+- [Learning Journey](#-learning-journey)
+- [Projects Overview](#-projects-overview)
+- [Project Documentation](#-project-documentation)
+- [Key Learning Outcomes](#-key-learning-outcomes)
 
 ---
 
-# 🎯 Internship Objectives
+# Internship Objectives
 
 During this internship, I focused on gaining practical experience with AWS services by building and deploying cloud-based solutions instead of only studying theoretical concepts.
 
@@ -67,7 +66,7 @@ The primary objectives were to:
 
 ---
 
-# 📂 Repository Structure
+# Repository Structure
 
 ```text
 AWS-Internship-at-Center-of-Excellence-KIET
@@ -113,7 +112,7 @@ AWS-Internship-at-Center-of-Excellence-KIET
 
 ---
 
-# 🚀 Projects Completed
+# Projects Completed
 
 | Project | Description | Technologies |
 |----------|-------------|--------------|
@@ -125,7 +124,7 @@ AWS-Internship-at-Center-of-Excellence-KIET
 
 ---
 
-# 🌟 Highlights
+# Highlights
 
 During this internship, I successfully:
 
@@ -139,11 +138,11 @@ During this internship, I successfully:
 
 ---
 
-# 🛠️ Skills Gained
+# Skills Gained
 
 Throughout this internship, I worked with a wide range of AWS services, Linux utilities, and cloud engineering concepts.
 
-## ☁️ AWS Services
+## AWS Services
 
 - Amazon EC2
 - Amazon VPC
@@ -176,7 +175,7 @@ Throughout this internship, I worked with a wide range of AWS services, Linux ut
 
 ---
 
-## ⚙️ DevOps & Cloud Engineering
+## DevOps & Cloud Engineering
 
 - Infrastructure as Code (IaC)
 - AWS CloudFormation
@@ -190,7 +189,7 @@ Throughout this internship, I worked with a wide range of AWS services, Linux ut
 
 ---
 
-## 👨‍💻 Programming & Automation
+## Programming & Automation
 
 - Python
 - Boto3 (AWS SDK for Python)
@@ -200,7 +199,7 @@ Throughout this internship, I worked with a wide range of AWS services, Linux ut
 
 ---
 
-# 📈 Learning Journey
+# Learning Journey
 
 This internship followed a progressive learning path, starting from Linux security fundamentals and gradually moving toward production-ready cloud architecture.
 
@@ -233,9 +232,9 @@ Each project built upon concepts learned in the previous one, resulting in a com
 
 ---
 
-# 📚 Projects Overview
+# Projects Overview
 
-## 🚀 Project 01 — Passwordless SSH Authentication
+## Project 01 — Passwordless SSH Authentication
 
 Learned how SSH Public Key Authentication enables secure, passwordless access to Linux servers while reducing the risks associated with password-based authentication.
 
@@ -257,7 +256,7 @@ Learned how SSH Public Key Authentication enables secure, passwordless access to
 
 ---
 
-## 🚀 Project 02 — AWS Networking with Session Manager
+## Project 02 — AWS Networking with Session Manager
 
 Designed and implemented a secure AWS networking environment consisting of public and private subnets while securely accessing EC2 instances using AWS Systems Manager Session Manager.
 
@@ -282,7 +281,7 @@ Designed and implemented a secure AWS networking environment consisting of publi
 
 ---
 
-## 🚀 Project 03 — Self-Healing Infrastructure
+## Project 03 — Self-Healing Infrastructure
 
 Built an event-driven automation workflow capable of automatically recovering EC2 instances using Amazon EventBridge and AWS Systems Manager Automation.
 
@@ -302,7 +301,7 @@ Built an event-driven automation workflow capable of automatically recovering EC
 
 ---
 
-## 🚀 Project 04 — AWS Automation using Python & Boto3
+## Project 04 — AWS Automation using Python & Boto3
 
 Automated common AWS operations using Python and the AWS SDK (Boto3).
 
@@ -323,7 +322,7 @@ Automated common AWS operations using Python and the AWS SDK (Boto3).
 
 ---
 
-## 🚀 Project 05 — Secure Two-Tier AWS Architecture using CloudFormation
+## Project 05 — Secure Two-Tier AWS Architecture using CloudFormation
 
 Designed and deployed a production-oriented AWS infrastructure entirely through Infrastructure as Code using AWS CloudFormation.
 
@@ -353,25 +352,25 @@ Designed and deployed a production-oriented AWS infrastructure entirely through 
 
 ---
 
-# 📄 Project Documentation
+# Project Documentation
 
 Each project is organized to provide a structured learning experience.
 
 Every project folder contains:
 
-- 📖 Detailed README
-- 🏗️ Architecture Diagram
-- 📚 Theory Notes
-- ⚙️ Step-by-Step Implementation Guide
-- 💻 Commands Used (where applicable)
-- 📷 Screenshots
-- 🎯 Key Learning Outcomes
+- Detailed README
+- Architecture Image
+- Theory Notes
+- Step-by-Step Implementation Guide
+- Commands Used (where applicable)
+- Screenshots
+- Key Learning Outcomes
 
 The documentation is designed to help learners understand not only *how* to implement each solution, but also *why* each AWS service or concept is used.
 
 ---
 
-# 🎓 Key Learning Outcomes
+# Key Learning Outcomes
 
 Completing this internship significantly strengthened my understanding of AWS cloud services and modern cloud engineering practices.
 
@@ -392,7 +391,7 @@ These projects helped bridge the gap between theoretical cloud concepts and thei
 
 ---
 
-# 🚀 Future Enhancements
+# Future Enhancements
 
 This repository will continue to grow as I expand my knowledge of AWS and cloud technologies.
 
@@ -411,7 +410,7 @@ Some planned additions include:
 
 ---
 
-# 📚 References
+# References
 
 - AWS Documentation
 - AWS Academy Learning Resources
@@ -421,31 +420,7 @@ Some planned additions include:
 
 ---
 
-# 🙏 Acknowledgements
-
-I sincerely express my gratitude to everyone who contributed to making this internship a valuable learning experience.
-
-### Special Thanks To
-
-### **Satyam Sunderam Sir**
-
-For continuous guidance, mentorship, practical demonstrations, and insightful explanations throughout the internship.
-
-### **Dr. Ankur Bhardwaj Sir**
-
-For introducing AWS automation using Python and Boto3, and for providing practical insights into cloud automation.
-
-### **AWS Cloud Club KIET**
-
-For creating a collaborative learning environment and encouraging students to explore cloud technologies through hands-on practice.
-
-### **Center of Excellence (CoE), Internship and Placement Cell, in collaboration with AWS Academy at KIET Group of Institutions**
-
-For organizing this internship and providing an excellent platform to gain practical experience in cloud computing and AWS technologies.
-
----
-
-# 🌟 Support
+# Support
 
 If you found this repository helpful or learned something new from it, consider giving it a ⭐.
 
@@ -453,22 +428,8 @@ Your support motivates me to continue learning, building, and sharing more cloud
 
 ---
 
-# 👩‍💻 About the Author
+# Author
 
 **Aditi Narang**
 
-B.Tech CSE (AI & ML) Student | Cloud & DevOps Enthusiast
-
-I'm passionate about Cloud Computing, DevOps, Linux, and Infrastructure Automation. I enjoy building practical projects that strengthen my understanding of modern cloud technologies while continuously exploring new tools and best practices.
-
 ---
-
-<div align="center">
-
-### ⭐ Thank you for visiting this repository!
-
-If you found this project useful, don't forget to leave a ⭐ on the repository.
-
-**Happy Learning! ☁️🚀**
-
-</div>
