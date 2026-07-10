@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/banner.png" alt="AWS Internship Banner" />
-</p>
-
 <div align="center">
 
 # AWS Internship at Center of Excellence - KIET
@@ -23,6 +19,20 @@
 
 ---
 
+# Table of Contents
+
+- [About](#about)
+- [Internship Objectives](#internship-objectives)
+- [Repository Structure](#repository-structure)
+- [Projects Completed](#projects-completed)
+- [Skills Gained](#skills-gained)
+- [Learning Journey](#learning-journey)
+- [Projects Overview](#projects-overview)
+- [Project Documentation](#project-documentation)
+- [Key Learning Outcomes](#key-learning-outcomes)
+
+---
+
 # About
 
 This repository showcases the hands-on projects and practical implementations I completed during my **AWS Internship** conducted by the **Center of Excellence (CoE), Internship and Placement Cell, in collaboration with AWS Academy at KIET Group of Institutions**.
@@ -30,20 +40,6 @@ This repository showcases the hands-on projects and practical implementations I 
 Throughout the internship, I worked on real-world AWS services and cloud engineering concepts including secure Linux access, AWS networking, cloud automation, Infrastructure as Code (IaC), monitoring, cloud security, and production-oriented infrastructure design.
 
 Each project in this repository includes detailed documentation, architecture diagrams, implementation steps, theory notes, screenshots, and key learning outcomes, making it a complete record of my internship journey.
-
----
-
-# Table of Contents
-
-- [About](#-about)
-- [Internship Objectives](#-internship-objectives)
-- [Repository Structure](#-repository-structure)
-- [Projects Completed](#-projects-completed)
-- [Skills Gained](#️-skills-gained)
-- [Learning Journey](#-learning-journey)
-- [Projects Overview](#-projects-overview)
-- [Project Documentation](#-project-documentation)
-- [Key Learning Outcomes](#-key-learning-outcomes)
 
 ---
 
