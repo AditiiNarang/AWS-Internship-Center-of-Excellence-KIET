@@ -1,142 +1,220 @@
+<p align="center">
+  <img src="assets/banner.png" alt="AWS Internship Banner" />
+</p>
+
 <div align="center">
 
-# AWS Internship at Center of Excellence - KIET
+# ☁️ AWS Internship at Center of Excellence - KIET
 
-### A collection of hands-on AWS projects, cloud automation labs, and Infrastructure as Code implementations completed during my AWS Internship.
+### Hands-on AWS Projects | Cloud Security | Automation | Infrastructure as Code | Cloud Engineering
 
-![AWS](https://img.shields.io/badge/AWS-Cloud-orange?style=for-the-badge&logo=amazonaws)
-![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
-![Linux](https://img.shields.io/badge/Linux-Ubuntu-black?style=for-the-badge&logo=linux)
-![CloudFormation](https://img.shields.io/badge/Infrastructure_as_Code-CloudFormation-orange?style=for-the-badge)
-![Boto3](https://img.shields.io/badge/Boto3-AWS_SDK-yellow?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+<p>
+  <img src="https://img.shields.io/badge/AWS-Cloud-orange?style=for-the-badge&logo=amazonaws" />
+  <img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/Linux-Ubuntu-black?style=for-the-badge&logo=linux" />
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/CloudFormation-IaC-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Boto3-AWS%20SDK-yellow?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" />
+</p>
 
 </div>
 
 ---
 
-# About
+# 📖 About
 
-This repository documents my learning journey during the **AWS Internship** conducted at the **Center of Excellence (CoE) by Internship and Placement CELL in collaboration with AWS Academy at KIET Group of Institutions**.
+This repository showcases the hands-on projects and practical implementations I completed during my **AWS Internship** conducted by the **Center of Excellence (CoE), Internship and Placement Cell, in collaboration with AWS Academy at KIET Group of Institutions**.
 
-Throughout the internship, I explored cloud computing concepts through hands-on labs, real-world scenarios, and automation projects. The internship covered Linux security, AWS networking, cloud automation, Infrastructure as Code (IaC), and the design of a production-oriented AWS architecture.
+Throughout the internship, I worked on real-world AWS services and cloud engineering concepts including secure Linux access, AWS networking, cloud automation, Infrastructure as Code (IaC), monitoring, cloud security, and production-oriented infrastructure design.
 
-Each module in this repository contains detailed documentation, implementation steps, architecture diagrams, screenshots, theory notes, and key learning outcomes.
-
----
-
-# Internship Objectives
-
-- Learn AWS core services through practical implementation.
-- Understand cloud networking and secure infrastructure design.
-- Explore Linux-based secure remote access.
-- Automate cloud operations using Python and Boto3.
-- Implement event-driven automation in AWS.
-- Build Infrastructure as Code using AWS CloudFormation.
-- Design a secure and scalable cloud architecture.
+Each project in this repository includes detailed documentation, architecture diagrams, implementation steps, theory notes, screenshots, and key learning outcomes, making it a complete record of my internship journey.
 
 ---
 
-# Repository Structure
+# 📑 Table of Contents
 
-```
+- [📖 About](#-about)
+- [🎯 Internship Objectives](#-internship-objectives)
+- [📂 Repository Structure](#-repository-structure)
+- [🚀 Projects Completed](#-projects-completed)
+- [🛠️ Skills Gained](#️-skills-gained)
+- [📈 Learning Journey](#-learning-journey)
+- [📚 Projects Overview](#-projects-overview)
+- [📄 Project Documentation](#-project-documentation)
+- [🎓 Key Learning Outcomes](#-key-learning-outcomes)
+- [🙏 Acknowledgements](#-acknowledgements)
+
+---
+
+# 🎯 Internship Objectives
+
+During this internship, I focused on gaining practical experience with AWS services by building and deploying cloud-based solutions instead of only studying theoretical concepts.
+
+The primary objectives were to:
+
+- Build a strong foundation in AWS Cloud services.
+- Understand secure cloud infrastructure design.
+- Learn Linux-based server management and secure remote access.
+- Explore AWS networking components and traffic flow.
+- Implement automation using AWS services and Python.
+- Understand Infrastructure as Code (IaC) using AWS CloudFormation.
+- Design scalable and production-oriented AWS architectures.
+- Learn cloud security best practices.
+- Gain hands-on experience with monitoring and automation.
+
+---
+
+# 📂 Repository Structure
+
+```text
 AWS-Internship-at-Center-of-Excellence-KIET
 │
+├── README.md
+│
 ├── 01-Passwordless-SSH-Authentication
+│   ├── README.md
+│   ├── Architecture/
+│   ├── Images/
+│   ├── Theory.pdf
+│   └── Commands.md
 │
 ├── 02-AWS-Networking-with-Session-Manager
+│   ├── README.md
+│   ├── Architecture/
+│   ├── Images/
+│   ├── Theory.pdf
+│   └── Commands.md
 │
 ├── 03-Self-Healing-Infrastructure
+│   ├── README.md
+│   ├── Architecture/
+│   ├── Images/
+│   ├── Theory.pdf
+│   └── Commands.md
 │
 ├── 04-AWS-Automation-Using-Python-and-Boto3
+│   ├── README.md
+│   ├── Architecture/
+│   ├── Images/
+│   ├── Theory.pdf
+│   └── Source-Code/
 │
-└── 05-Two-Tier-AWS-Architecture-Using-CloudFormation
+└── 05-Secure-Two-Tier-AWS-Architecture
+    ├── README.md
+    ├── Architecture/
+    ├── Images/
+    ├── CloudFormation/
+    ├── Theory.pdf
+    └── Source-Code/
 ```
 
 ---
 
-# Internship Modules
+# 🚀 Projects Completed
 
-| Module | Project | Technologies |
-|---------|----------|-------------|
-| 01 | Passwordless SSH Authentication | SSH, SCP, Rsync, SSH Agent Forwarding, ProxyJump |
-| 02 | AWS Networking with Session Manager | VPC, EC2, IAM, NAT Gateway, Internet Gateway, AWS Systems Manager |
-| 03 | Self-Healing Infrastructure | Amazon EventBridge, Systems Manager Automation, IAM |
-| 04 | AWS Automation using Python | Python, Boto3, AWS CLI, S3, EC2, IAM |
-| 05 | Secure Two-Tier AWS Architecture | CloudFormation, VPC, ALB, CloudWatch, CloudTrail, EventBridge, Lambda, SNS, AWS Backup |
+| Project | Description | Technologies |
+|----------|-------------|--------------|
+| **[Project 01](01-Passwordless-SSH-Authentication)** | Passwordless SSH Authentication using SSH Public Key Authentication | SSH, SCP, Rsync, SSH Agent Forwarding, ProxyJump |
+| **[Project 02](02-AWS-Networking-with-Session-Manager)** | Secure AWS networking with AWS Systems Manager Session Manager | Amazon VPC, EC2, IAM, Internet Gateway, NAT Gateway, AWS Systems Manager |
+| **[Project 03](03-Self-Healing-Infrastructure)** | Automated EC2 recovery using EventBridge and Systems Manager Automation | Amazon EventBridge, Systems Manager Automation, IAM, EC2 |
+| **[Project 04](04-AWS-Automation-Using-Python-and-Boto3)** | Automating AWS resources using Python and Boto3 | Python, AWS CLI, Boto3, Amazon S3, EC2, IAM |
+| **[Project 05](05-Secure-Two-Tier-AWS-Architecture)** | Production-style secure AWS infrastructure deployed using CloudFormation | CloudFormation, VPC, ALB, CloudWatch, CloudTrail, EventBridge, Lambda, SNS, AWS Backup |
 
 ---
 
-# Skills Gained
+# 🌟 Highlights
 
-## AWS Services
+During this internship, I successfully:
+
+- Implemented passwordless SSH authentication using public key cryptography.
+- Designed secure AWS networking architectures with public and private subnets.
+- Accessed EC2 instances securely without opening SSH (Port 22) using AWS Systems Manager Session Manager.
+- Built a self-healing cloud infrastructure using Amazon EventBridge and AWS Systems Manager Automation.
+- Automated AWS resource management using Python and Boto3.
+- Developed a production-oriented two-tier AWS architecture using Infrastructure as Code (CloudFormation).
+- Worked with monitoring, automation, security, and cloud networking concepts widely used in industry.
+
+---
+
+# 🛠️ Skills Gained
+
+Throughout this internship, I worked with a wide range of AWS services, Linux utilities, and cloud engineering concepts.
+
+## ☁️ AWS Services
 
 - Amazon EC2
 - Amazon VPC
-- AWS Systems Manager
+- AWS Systems Manager (SSM)
 - Amazon EventBridge
 - Amazon CloudWatch
 - AWS CloudTrail
-- Amazon SNS
 - AWS Lambda
+- Amazon SNS
 - AWS Backup
 - AWS IAM
 - Amazon S3
 - NAT Gateway
 - Internet Gateway
 - Elastic IP
-- Application Load Balancer
+- Application Load Balancer (ALB)
 
 ---
 
-## Linux & Networking
+## 💻 Linux & System Administration
 
-- SSH Authentication
+- SSH Public Key Authentication
 - Passwordless Authentication
-- SCP
+- SCP (Secure Copy Protocol)
 - Rsync
 - SSH Agent Forwarding
 - SSH ProxyJump
-- Linux Terminal
+- Linux Terminal Commands
 - Secure Remote Access
 
 ---
 
-## DevOps Concepts
+## ⚙️ DevOps & Cloud Engineering
 
 - Infrastructure as Code (IaC)
+- AWS CloudFormation
 - Cloud Automation
 - Event-Driven Architecture
 - Self-Healing Infrastructure
 - Cloud Monitoring
 - Cloud Security
-- Production Infrastructure Design
+- Secure Infrastructure Design
+- Production-Oriented Cloud Architecture
 
 ---
 
-## Programming & Automation
+## 👨‍💻 Programming & Automation
 
 - Python
-- Boto3
+- Boto3 (AWS SDK for Python)
 - AWS CLI
 - YAML
 - Automation Scripts
 
 ---
 
-# Learning Journey
+# 📈 Learning Journey
 
-```
-Linux Security
+This internship followed a progressive learning path, starting from Linux security fundamentals and gradually moving toward production-ready cloud architecture.
+
+```text
+Linux & SSH Security
         │
         ▼
-Passwordless SSH Authentication
+Passwordless Authentication
         │
         ▼
 AWS Networking
         │
         ▼
-Secure Instance Management
+Secure EC2 Access using Systems Manager
         │
         ▼
 Cloud Automation
@@ -148,80 +226,112 @@ Python + Boto3
 Infrastructure as Code
         │
         ▼
-Production AWS Architecture
+Production-Ready AWS Architecture
 ```
+
+Each project built upon concepts learned in the previous one, resulting in a comprehensive understanding of AWS cloud infrastructure, automation, and security.
 
 ---
 
-# Projects Overview
+# 📚 Projects Overview
 
-## Module 01
-### Passwordless SSH Authentication
+## 🚀 Project 01 — Passwordless SSH Authentication
 
-Implemented secure SSH Public Key Authentication for passwordless server access.
+Learned how SSH Public Key Authentication enables secure, passwordless access to Linux servers while reducing the risks associated with password-based authentication.
 
-Topics covered:
+### Topics Covered
 
 - SSH Key Pair Authentication
+- Passwordless Login
 - SCP
 - Rsync
 - SSH Agent Forwarding
 - SSH ProxyJump
 
+### Key Takeaways
+
+- Understood SSH public-private key cryptography.
+- Learned secure remote server access.
+- Explored efficient file transfer techniques.
+- Practiced Linux security best practices.
+
 ---
 
-## Module 02
-### AWS Networking with Session Manager
+## 🚀 Project 02 — AWS Networking with Session Manager
 
-Designed a secure AWS networking architecture consisting of:
+Designed and implemented a secure AWS networking environment consisting of public and private subnets while securely accessing EC2 instances using AWS Systems Manager Session Manager.
 
-- Custom VPC
+### Topics Covered
+
+- Amazon VPC
 - Public & Private Subnets
+- Route Tables
 - Internet Gateway
 - NAT Gateway
-- Public EC2
-- Private EC2
+- Elastic IP
+- EC2
+- IAM Roles
 - AWS Systems Manager Session Manager
+
+### Key Takeaways
+
+- Understood AWS networking fundamentals.
+- Learned traffic flow inside a VPC.
+- Managed EC2 instances without opening SSH (Port 22).
+- Implemented secure instance management.
 
 ---
 
-## Module 03
-### Self-Healing Infrastructure
+## 🚀 Project 03 — Self-Healing Infrastructure
 
-Implemented event-driven infrastructure automation using:
+Built an event-driven automation workflow capable of automatically recovering EC2 instances using Amazon EventBridge and AWS Systems Manager Automation.
+
+### Topics Covered
 
 - Amazon EventBridge
-- Systems Manager Automation
+- AWS Systems Manager Automation
 - IAM Roles
 - EC2 State Change Events
 
-Automatically restarted stopped EC2 instances.
+### Key Takeaways
+
+- Learned event-driven cloud architecture.
+- Built self-healing infrastructure.
+- Reduced manual operational effort.
+- Improved infrastructure reliability.
 
 ---
 
-## Module 04
-### AWS Automation using Python & Boto3
+## 🚀 Project 04 — AWS Automation using Python & Boto3
 
-Automated AWS resource management using Python.
+Automated common AWS operations using Python and the AWS SDK (Boto3).
 
-Implemented automation for:
+### Topics Covered
 
+- AWS CLI
+- Boto3
 - Amazon S3
 - Amazon EC2
 - AWS IAM
-- AWS Inventory Reporting
+- Inventory Reporting
+
+### Key Takeaways
+
+- Managed AWS resources programmatically.
+- Automated repetitive cloud operations.
+- Improved operational efficiency using Python.
 
 ---
 
-## Module 05
-### Secure Two-Tier AWS Architecture
+## 🚀 Project 05 — Secure Two-Tier AWS Architecture using CloudFormation
 
-Designed and deployed a production-oriented AWS infrastructure using CloudFormation.
+Designed and deployed a production-oriented AWS infrastructure entirely through Infrastructure as Code using AWS CloudFormation.
 
-Components include:
+### Topics Covered
 
-- Multi-AZ VPC
-- Public & Private Subnets
+- AWS CloudFormation
+- Amazon VPC
+- Multi-AZ Deployment
 - Internet Gateway
 - NAT Gateway
 - Application Load Balancer
@@ -234,53 +344,131 @@ Components include:
 - AWS Backup
 - Systems Manager
 
----
+### Key Takeaways
 
-# Theory, Architecture & Implementation guide
-
-Each project folder contains:
-
-- Architecture Diagram
-- Theory Notes
-- Implementation Guide
+- Designed scalable cloud infrastructure.
+- Implemented Infrastructure as Code.
+- Applied monitoring, security, automation, and backup strategies.
+- Understood production-grade AWS architecture.
 
 ---
 
-# Key Learning Outcomes
+# 📄 Project Documentation
 
-Throughout this internship, I gained practical experience in:
+Each project is organized to provide a structured learning experience.
 
-- Designing secure AWS networking environments
-- Managing cloud infrastructure securely
-- Automating AWS resources using Python
-- Building self-healing cloud architectures
-- Implementing Infrastructure as Code using AWS CloudFormation
-- Applying cloud security best practices
-- Working with production-oriented AWS services
+Every project folder contains:
 
----
+- 📖 Detailed README
+- 🏗️ Architecture Diagram
+- 📚 Theory Notes
+- ⚙️ Step-by-Step Implementation Guide
+- 💻 Commands Used (where applicable)
+- 📷 Screenshots
+- 🎯 Key Learning Outcomes
 
-# Acknowledgements
-
-I sincerely thank everyone who contributed to making this internship a valuable learning experience.
-
-Special thanks to:
-
-- **Satyam Sunderam Sir** for continuous guidance, mentorship, and practical learning sessions.
-- **Dr. Ankur Bhardwaj Sir** for guidance on AWS automation using Python and Boto3.
-- **AWS Cloud Club KIET** for providing an excellent platform to learn and explore cloud technologies.
-- **Center of Excellence (CoE), KIET Group of Institutions** for organizing this internship and fostering hands-on learning.
+The documentation is designed to help learners understand not only *how* to implement each solution, but also *why* each AWS service or concept is used.
 
 ---
 
-# If you found this repository helpful, consider giving it a Star!
+# 🎓 Key Learning Outcomes
 
-It motivates me to continue building and sharing practical cloud computing projects.
+Completing this internship significantly strengthened my understanding of AWS cloud services and modern cloud engineering practices.
+
+### Throughout this internship, I learned to:
+
+- Design secure and scalable cloud infrastructures on AWS.
+- Configure Linux servers for secure remote access using SSH Public Key Authentication.
+- Build custom AWS networking environments using Amazon VPC.
+- Manage EC2 instances securely using AWS Systems Manager Session Manager.
+- Automate cloud operations using Amazon EventBridge and Systems Manager Automation.
+- Develop self-healing infrastructure capable of responding automatically to operational events.
+- Automate AWS resource management using Python, Boto3, and AWS CLI.
+- Implement Infrastructure as Code (IaC) using AWS CloudFormation.
+- Design production-oriented AWS architectures following cloud security best practices.
+- Understand how multiple AWS services work together to build reliable, scalable, and maintainable cloud solutions.
+
+These projects helped bridge the gap between theoretical cloud concepts and their practical implementation in real-world scenarios.
+
+---
+
+# 🚀 Future Enhancements
+
+This repository will continue to grow as I expand my knowledge of AWS and cloud technologies.
+
+Some planned additions include:
+
+- Containerization using Docker
+- Kubernetes (Amazon EKS)
+- CI/CD Pipelines using GitHub Actions
+- Terraform for Infrastructure as Code
+- AWS ECS & Fargate
+- AWS Elastic Beanstalk
+- Monitoring with Prometheus & Grafana
+- Advanced AWS Security Services
+- Serverless Applications using AWS Lambda
+- Real-world DevOps projects
+
+---
+
+# 📚 References
+
+- AWS Documentation
+- AWS Academy Learning Resources
+- AWS Skill Builder
+- Linux Manual Pages
+- OpenSSH Documentation
+
+---
+
+# 🙏 Acknowledgements
+
+I sincerely express my gratitude to everyone who contributed to making this internship a valuable learning experience.
+
+### Special Thanks To
+
+### **Satyam Sunderam Sir**
+
+For continuous guidance, mentorship, practical demonstrations, and insightful explanations throughout the internship.
+
+### **Dr. Ankur Bhardwaj Sir**
+
+For introducing AWS automation using Python and Boto3, and for providing practical insights into cloud automation.
+
+### **AWS Cloud Club KIET**
+
+For creating a collaborative learning environment and encouraging students to explore cloud technologies through hands-on practice.
+
+### **Center of Excellence (CoE), Internship and Placement Cell, in collaboration with AWS Academy at KIET Group of Institutions**
+
+For organizing this internship and providing an excellent platform to gain practical experience in cloud computing and AWS technologies.
+
+---
+
+# 🌟 Support
+
+If you found this repository helpful or learned something new from it, consider giving it a ⭐.
+
+Your support motivates me to continue learning, building, and sharing more cloud and DevOps projects.
+
+---
+
+# 👩‍💻 About the Author
+
+**Aditi Narang**
+
+B.Tech CSE (AI & ML) Student | Cloud & DevOps Enthusiast
+
+I'm passionate about Cloud Computing, DevOps, Linux, and Infrastructure Automation. I enjoy building practical projects that strengthen my understanding of modern cloud technologies while continuously exploring new tools and best practices.
 
 ---
 
 <div align="center">
 
-### Thank you for visiting this repository! 😊
+### ⭐ Thank you for visiting this repository!
+
+If you found this project useful, don't forget to leave a ⭐ on the repository.
+
+**Happy Learning! ☁️🚀**
 
 </div>
