@@ -17,7 +17,6 @@
 <p>
   <img src="https://img.shields.io/badge/CloudFormation-IaC-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Boto3-AWS%20SDK-yellow?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" />
 </p>
 
 </div>
