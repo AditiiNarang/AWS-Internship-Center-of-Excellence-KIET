@@ -21,8 +21,6 @@
 
 # Table of Contents
 
-# Table of Contents
-
 - [About](#about)
 - [Internship Objectives](#internship-objectives)
 - [Repository Structure](#repository-structure)
