@@ -21,15 +21,30 @@
 
 # Table of Contents
 
+# Table of Contents
+
 - [About](#about)
 - [Internship Objectives](#internship-objectives)
 - [Repository Structure](#repository-structure)
 - [Projects Completed](#projects-completed)
+- [Highlights](#highlights)
 - [Skills Gained](#skills-gained)
+  - [AWS Services](#aws-services)
+  - [Linux & System Administration](#linux--system-administration)
+  - [DevOps & Cloud Engineering](#devops--cloud-engineering)
+  - [Programming & Automation](#programming--automation)
 - [Learning Journey](#learning-journey)
 - [Projects Overview](#projects-overview)
-- [Project Documentation](#project-documentation)
+  - [Project 01 – Passwordless SSH Authentication](#project-01--passwordless-ssh-authentication)
+  - [Project 02 – AWS Networking with Session Manager](#project-02--aws-networking-with-session-manager)
+  - [Project 03 – Self-Healing Infrastructure](#project-03--self-healing-infrastructure)
+  - [Project 04 – AWS Automation using Python & Boto3](#project-04--aws-automation-using-python--boto3)
+  - [Project 05 – Secure Two-Tier AWS Architecture using CloudFormation](#project-05--secure-two-tier-aws-architecture-using-cloudformation)
 - [Key Learning Outcomes](#key-learning-outcomes)
+- [Future Enhancements](#future-enhancements)
+- [References](#references)
+- [Support](#support)
+- [Author](#author)
 
 ---
 
@@ -157,7 +172,7 @@ Throughout this internship, I worked with a wide range of AWS services, Linux ut
 
 ---
 
-## 💻 Linux & System Administration
+## Linux & System Administration
 
 - SSH Public Key Authentication
 - Passwordless Authentication
@@ -347,24 +362,6 @@ Designed and deployed a production-oriented AWS infrastructure entirely through 
 
 ---
 
-# Project Documentation
-
-Each project is organized to provide a structured learning experience.
-
-Every project folder contains:
-
-- Detailed README
-- Architecture Image
-- Theory Notes
-- Step-by-Step Implementation Guide
-- Commands Used (where applicable)
-- Screenshots
-- Key Learning Outcomes
-
-The documentation is designed to help learners understand not only *how* to implement each solution, but also *why* each AWS service or concept is used.
-
----
-
 # Key Learning Outcomes
 
 Completing this internship significantly strengthened my understanding of AWS cloud services and modern cloud engineering practices.
@@ -387,10 +384,6 @@ These projects helped bridge the gap between theoretical cloud concepts and thei
 ---
 
 # Future Enhancements
-
-This repository will continue to grow as I expand my knowledge of AWS and cloud technologies.
-
-Some planned additions include:
 
 - Containerization using Docker
 - Kubernetes (Amazon EKS)
