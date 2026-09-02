@@ -133,7 +133,7 @@ For the complete list of commands used during the implementation, see:
 
 ## Documentation
 
-**[Theory.pdf](./Theory.pdf)**
+**[Theory](./Theory)** 
 
 ---
 
