@@ -126,7 +126,7 @@ AWS-Internship-at-Center-of-Excellence-KIET
 |----------|-------------|--------------|
 | **[Project 01](./01-Passwordless-SSH-Authentication/)** | Passwordless SSH Authentication using SSH Public Key Authentication | SSH, SCP, Rsync, SSH Agent Forwarding, ProxyJump |
 | **[Project 02](./02-AWS%20Networking%20with%20Session%20Manager/)** | Secure AWS networking with AWS Systems Manager Session Manager | Amazon VPC, EC2, IAM, Internet Gateway, NAT Gateway, AWS Systems Manager |
-| **[Project 03](03-Self-Healing-Infrastructure)** | Automated EC2 recovery using EventBridge and Systems Manager Automation | Amazon EventBridge, Systems Manager Automation, IAM, EC2 |
+| **[Project 03](./03-Self-Healing-Infrastructure/)** | Automated EC2 recovery using EventBridge and Systems Manager Automation | Amazon EventBridge, Systems Manager Automation, IAM, EC2 |
 | **[Project 04](04-AWS-Automation-Using-Python-and-Boto3)** | Automating AWS resources using Python and Boto3 | Python, AWS CLI, Boto3, Amazon S3, EC2, IAM |
 | **[Project 05](05-Secure-Two-Tier-AWS-Architecture)** | Production-style secure AWS infrastructure deployed using CloudFormation | CloudFormation, VPC, ALB, CloudWatch, CloudTrail, EventBridge, Lambda, SNS, AWS Backup |
 
@@ -289,7 +289,7 @@ Designed and implemented a secure AWS networking environment consisting of publi
 
 ---
 
-## Project 03: Self-Healing Infrastructure
+## [Project 03: Self-Healing Infrastructure](./03-Self-Healing-Infrastructure/)
 
 Built an event-driven automation workflow capable of automatically recovering EC2 instances using Amazon EventBridge and AWS Systems Manager Automation.
 

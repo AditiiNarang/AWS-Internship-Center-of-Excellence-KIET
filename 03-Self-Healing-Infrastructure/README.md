@@ -315,10 +315,10 @@ Detailed project resources are available below:
 
 | Resource                                                                            | Description                                     |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------- |
-| [Theory.pdf](./Theory.pdf)                                                          | Detailed theory and concepts behind the project |
+| [Theory](./Theory/)                                                          | Detailed theory and concepts behind the project |
 | [Commands.md](./Commands.md)                                                        | AWS CLI commands and testing/verification steps |
 | [Architecture Diagram](./Architecture/self-healing-infrastructure-architecture.png) | Project architecture diagram                    |
-| [Video](./Images/)                                                                 | Proof of Work       |
+| [Video](./Video/Screen%20Recording%202026-06-24%20102036.mp4)                                                                 | Proof of Work       |
 
 ---
 
