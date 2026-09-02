@@ -475,7 +475,7 @@ The theory documentation covers the concepts behind SSH authentication, secure s
 
 ### Commands
 
-**[Commands.md](./Commands.md)**
+**[Commands.md](./Commands/Commands.md)**
 
 Contains the commands used to implement and verify the lab.
 

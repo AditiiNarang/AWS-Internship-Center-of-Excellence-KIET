@@ -223,7 +223,7 @@ AWS-StartEC2Instance
 
 The test EC2 instance is stopped manually and the automatic recovery process is observed.
 
-> For detailed commands and CLI-based verification, see [Commands.md](./Commands.md).
+> For detailed commands and CLI-based verification, see [Commands.md](./Commands/Commands.md).
 
 ---
 
@@ -267,7 +267,7 @@ Success
 
 Detailed testing and verification commands are available in:
 
-[Commands.md](./Commands.md)
+[Commands.md](./Commands/Commands.md)
 
 ---
 
@@ -316,7 +316,7 @@ Detailed project resources are available below:
 | Resource                                                                            | Description                                     |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------- |
 | [Theory](./Theory/)                                                          | Detailed theory and concepts behind the project |
-| [Commands.md](./Commands.md)                                                        | AWS CLI commands and testing/verification steps |
+| [Commands.md](./Commands/Commands.md)                                                        | AWS CLI commands and testing/verification steps |
 | [Architecture Diagram](./Architecture/self-healing-infrastructure-architecture.png) | Project architecture diagram                    |
 
 ---
