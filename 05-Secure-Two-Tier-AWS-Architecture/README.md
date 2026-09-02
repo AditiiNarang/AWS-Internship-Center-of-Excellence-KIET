@@ -1,4 +1,4 @@
-# 🚀 AWS Secure Two-Tier Architecture Using CloudFormation
+# AWS Secure Two-Tier Architecture Using CloudFormation
 
 > **AWS Internship — Center of Excellence, KIET**
 
