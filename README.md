@@ -124,7 +124,7 @@ AWS-Internship-at-Center-of-Excellence-KIET
 
 | Project | Description | Technologies |
 |----------|-------------|--------------|
-| **[Project 01](AWS Internship\01-Passwordless-SSH-Authentication)** | Passwordless SSH Authentication using SSH Public Key Authentication | SSH, SCP, Rsync, SSH Agent Forwarding, ProxyJump |
+| **[Project 01](./01-Passwordless-SSH-Authentication/)** | Passwordless SSH Authentication using SSH Public Key Authentication | SSH, SCP, Rsync, SSH Agent Forwarding, ProxyJump |
 | **[Project 02](02-AWS-Networking-with-Session-Manager)** | Secure AWS networking with AWS Systems Manager Session Manager | Amazon VPC, EC2, IAM, Internet Gateway, NAT Gateway, AWS Systems Manager |
 | **[Project 03](03-Self-Healing-Infrastructure)** | Automated EC2 recovery using EventBridge and Systems Manager Automation | Amazon EventBridge, Systems Manager Automation, IAM, EC2 |
 | **[Project 04](04-AWS-Automation-Using-Python-and-Boto3)** | Automating AWS resources using Python and Boto3 | Python, AWS CLI, Boto3, Amazon S3, EC2, IAM |
