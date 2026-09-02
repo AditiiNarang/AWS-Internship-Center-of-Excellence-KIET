@@ -1,0 +1,213 @@
+
+
+Part 1: Prepare EC2 Instance
+
+Use one test EC2 instance.
+
+Copy its instance ID:
+
+i-xxxxxxxxxxxxxxxxx
+
+Keep it running first.
+
+Part 2: Create IAM Role for Automation
+
+Go to:
+
+IAM → Roles → Create role
+
+Choose:
+
+Trusted entity type: AWS service
+Use case: Systems Manager
+
+Click Next.
+
+Attach this policy:
+
+AmazonSSMAutomationRole
+
+Now create role name:
+
+EC2AutoStartAutomationRole
+
+After creating the role, open it.
+
+Go to:
+
+Permissions → Add permissions → Create inline policy
+
+Choose JSON and paste:
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:StartInstances",
+        "ec2:DescribeInstances"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+Save policy name:
+
+AllowStartEC2Instance
+
+Copy the role ARN. It will look like:
+
+arn:aws:iam::ACCOUNT-ID:role/EC2AutoStartAutomationRole
+Part 3: Create EventBridge Rule
+
+Go to:
+
+Amazon EventBridge → Rules → Create rule
+
+Name:
+
+AutoStartStoppedEC2
+
+Event bus:
+
+default
+
+Rule type:
+
+Rule with an event pattern
+
+Click Next.
+
+Part 4: Create Event Pattern
+
+Choose:
+
+Event source: AWS events or EventBridge partner events
+
+Event pattern method:
+
+Custom pattern JSON
+
+Paste this:
+
+{
+  "source": ["aws.ec2"],
+  "detail-type": ["EC2 Instance State-change Notification"],
+  "detail": {
+    "state": ["stopped"],
+    "instance-id": ["i-xxxxxxxxxxxxxxxxx"]
+  }
+}
+
+Replace:
+
+i-xxxxxxxxxxxxxxxxx
+
+with your actual instance ID.
+
+EC2 instance state-change notifications are the supported EC2 events that EventBridge can match for state transitions.
+
+Click Next.
+
+Part 5: Select Target
+
+Target type:
+
+AWS service
+
+Select target:
+
+Systems Manager Automation
+
+Document:
+
+AWS-StartEC2Instance
+
+This AWS-managed runbook starts one or more EC2 instances.
+
+Configure parameters:
+
+For InstanceId, enter:
+
+i-xxxxxxxxxxxxxxxxx
+
+For AutomationAssumeRole, enter the role ARN:
+
+arn:aws:iam::ACCOUNT-ID:role/EC2AutoStartAutomationRole
+
+Click Next.
+
+Part 6: Create Rule
+
+Review everything:
+
+Rule name: AutoStartStoppedEC2
+Event pattern: EC2 stopped
+Target: Systems Manager Automation
+Document: AWS-StartEC2Instance
+
+Click:
+
+Create rule
+Part 7: Test the Automation
+
+Go to:
+
+EC2 → Instances
+
+Select your test instance.
+
+Click:
+
+Instance state → Stop instance
+
+Wait until the instance state becomes:
+
+Stopped
+
+Now wait and refresh.
+
+Expected result:
+
+Stopped → Pending → Running
+
+This means EventBridge detected the stopped state and triggered Systems Manager Automation to start the instance.
+
+Part 8: Verify Execution
+
+Go to:
+
+Systems Manager → Automation
+
+Open:
+
+Execution history
+
+You should see an automation execution for:
+
+AWS-StartEC2Instance
+
+Status should become:
+
+Success
+Part 9: Explain to Students
+
+Tell them:
+
+In industry, this is called self-healing infrastructure.
+
+Instead of only sending an alert, AWS automatically takes corrective action.
+
+Monitoring tells us something is wrong.
+Automation fixes it.
+Important Note
+
+This demo is good for accidental stop recovery.
+
+But in real production, auto-start should be applied carefully. Sometimes an instance is stopped intentionally for maintenance or cost saving. So in industry, we usually apply this only to instances tagged like:
+
+AutoRecovery = true
+
+Next improvement: we can make the rule work only for tagged production instances.
