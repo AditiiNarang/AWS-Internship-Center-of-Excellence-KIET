@@ -1,0 +1,1137 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Secure Two-Tier AWS Architecture
+
+Parameters:
+
+  VPCCidr:
+    Type: String
+    Default: 10.0.0.0/16
+
+  PublicSubnet1Cidr:
+    Type: String
+    Default: 10.0.1.0/24
+
+  PublicSubnet2Cidr:
+    Type: String
+    Default: 10.0.2.0/24
+
+  PrivateSubnet1Cidr:
+    Type: String
+    Default: 10.0.3.0/24
+
+  PrivateSubnet2Cidr:
+    Type: String
+    Default: 10.0.4.0/24
+
+  LatestAmiId:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64
+
+Resources:
+
+#########################################
+# VPC
+#########################################
+
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VPCCidr
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+
+      Tags:
+        - Key: Name
+          Value: Project-VPC
+
+#########################################
+# Internet Gateway
+#########################################
+
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref VPC
+
+##########################################################
+# Public Subnet 1
+##########################################################
+
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !Ref PublicSubnet1Cidr
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select [0, !GetAZs '']
+
+      Tags:
+        - Key: Name
+          Value: PublicSubnet1
+
+##########################################################
+# Public Subnet 2
+##########################################################
+
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !Ref PublicSubnet2Cidr
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select [1, !GetAZs '']
+
+      Tags:
+        - Key: Name
+          Value: PublicSubnet2
+
+
+##########################################################
+# Private Subnet 1
+##########################################################
+
+  PrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !Ref PrivateSubnet1Cidr
+      AvailabilityZone: !Select [0, !GetAZs '']
+
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet1
+
+##########################################################
+# Private Subnet 2
+##########################################################
+
+  PrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !Ref PrivateSubnet2Cidr
+      AvailabilityZone: !Select [1, !GetAZs '']
+
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet2
+
+
+#########################################
+# Elastic IP for NAT
+#########################################
+
+  NatEIP:
+    Type: AWS::EC2::EIP
+    DependsOn: AttachGateway
+
+    Properties:
+      Domain: vpc
+
+#########################################
+# NAT Gateway
+#########################################
+
+  NatGateway:
+    Type: AWS::EC2::NatGateway
+
+    Properties:
+
+      AllocationId: !GetAtt NatEIP.AllocationId
+
+      SubnetId: !Ref PublicSubnet1
+
+      Tags:
+
+        - Key: Name
+
+          Value: Project-NAT
+
+#########################################
+# Public Route Table
+#########################################
+
+  PublicRouteTable:
+
+    Type: AWS::EC2::RouteTable
+
+    Properties:
+
+      VpcId: !Ref VPC
+
+#########################################
+# Public Route
+#########################################
+
+  PublicRoute:
+
+    Type: AWS::EC2::Route
+
+    DependsOn: AttachGateway
+
+    Properties:
+
+      RouteTableId: !Ref PublicRouteTable
+
+      DestinationCidrBlock: 0.0.0.0/0
+
+      GatewayId: !Ref InternetGateway
+
+#########################################
+# Private Route Table
+#########################################
+
+  PrivateRouteTable:
+
+    Type: AWS::EC2::RouteTable
+
+    Properties:
+
+      VpcId: !Ref VPC
+
+#########################################
+# Private Route
+#########################################
+
+  PrivateRoute:
+
+    Type: AWS::EC2::Route
+
+    Properties:
+
+      RouteTableId: !Ref PrivateRouteTable
+
+      DestinationCidrBlock: 0.0.0.0/0
+
+      NatGatewayId: !Ref NatGateway
+
+##########################################################
+# Public Subnet 1 Association
+##########################################################
+
+  PublicSubnet1Association:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet1
+      RouteTableId: !Ref PublicRouteTable
+
+##########################################################
+# Public Subnet 2 Association
+##########################################################
+
+  PublicSubnet2Association:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet2
+      RouteTableId: !Ref PublicRouteTable
+
+
+##########################################################
+# Private Subnet 1 Association
+##########################################################
+
+  PrivateSubnet1Association:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnet1
+      RouteTableId: !Ref PrivateRouteTable
+
+##########################################################
+# Private Subnet 2 Association
+##########################################################
+
+  PrivateSubnet2Association:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnet2
+      RouteTableId: !Ref PrivateRouteTable
+
+
+
+##########################################################
+# Security Group - Application Load Balancer
+##########################################################
+
+  ALBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow HTTP from Internet
+      VpcId: !Ref VPC
+
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+      Tags:
+        - Key: Name
+          Value: ALB-SG
+
+##########################################################
+# Security Group - Application EC2
+##########################################################
+
+  AppSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow HTTP only from ALB
+      VpcId: !Ref VPC
+
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          SourceSecurityGroupId: !Ref ALBSecurityGroup
+
+      Tags:
+        - Key: Name
+          Value: App-SG
+
+##########################################################
+# Security Group - Database
+##########################################################
+
+  DatabaseSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow MySQL only from Application Server
+      VpcId: !Ref VPC
+
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          SourceSecurityGroupId: !Ref AppSecurityGroup
+
+      Tags:
+        - Key: Name
+          Value: Database-SG
+
+##########################################################
+# IAM Role for EC2 (SSM + CloudWatch)
+##########################################################
+
+  EC2Role:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: Project-EC2-Role
+
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - sts:AssumeRole
+
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+
+##########################################################
+# Instance Profile
+##########################################################
+
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref EC2Role
+
+
+##########################################################
+# Application EC2
+##########################################################
+
+  ApplicationInstance:
+    Type: AWS::EC2::Instance
+
+    Properties:
+
+      InstanceType: t2.micro
+
+      ImageId: !Ref LatestAmiId
+
+      SubnetId: !Ref PrivateSubnet1
+
+      SecurityGroupIds:
+        - !Ref AppSecurityGroup
+
+      IamInstanceProfile: !Ref EC2InstanceProfile
+
+      Tags:
+        - Key: Name
+          Value: Application-Server
+
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          dnf update -y
+
+          # Install Nginx
+          dnf install -y nginx
+
+          systemctl enable nginx
+          systemctl start nginx
+
+          echo "<h1>Welcome to CloudOps Application Server</h1>" > /usr/share/nginx/html/index.html
+
+          # Install CloudWatch Agent
+          dnf install -y amazon-cloudwatch-agent
+
+          mkdir -p /opt/aws/amazon-cloudwatch-agent/etc
+
+          cat > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json <<EOF
+          {
+            "metrics": {
+              "append_dimensions": {
+                "InstanceId": "\${aws:InstanceId}"
+              },
+              "metrics_collected": {
+                "mem": {
+                  "measurement": [
+                    "mem_used_percent"
+                  ]
+                },
+                "disk": {
+                  "measurement": [
+                    "used_percent"
+                  ],
+                  "resources": [
+                    "/"
+                  ],
+                  "ignore_file_system_types": [
+                    "sysfs",
+                    "devtmpfs",
+                    "tmpfs"
+                  ]
+                }
+              }
+            },
+            "logs": {
+              "logs_collected": {
+                "files": {
+                  "collect_list": [
+                    {
+                      "file_path": "/var/log/nginx/access.log",
+                      "log_group_name": "/aws/ec2/application-access",
+                      "log_stream_name": "{instance_id}"
+                    },
+                    {
+                      "file_path": "/var/log/nginx/error.log",
+                      "log_group_name": "/aws/ec2/application-error",
+                      "log_stream_name": "{instance_id}"
+                    },
+                    {
+                      "file_path": "/var/log/messages",
+                      "log_group_name": "/aws/ec2/system",
+                      "log_stream_name": "{instance_id}"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+          EOF
+
+          /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+            -a fetch-config \
+            -m ec2 \
+            -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json \
+            -s
+
+##########################################################
+# Database EC2
+##########################################################
+
+  DatabaseInstance:
+    Type: AWS::EC2::Instance
+
+    Properties:
+
+      InstanceType: t2.micro
+
+      ImageId: !Ref LatestAmiId
+
+      SubnetId: !Ref PrivateSubnet1
+
+      SecurityGroupIds:
+        - !Ref DatabaseSecurityGroup
+
+      IamInstanceProfile: !Ref EC2InstanceProfile
+
+      Tags:
+        - Key: Name
+          Value: Database-Server
+
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          dnf update -y
+
+          dnf install -y mariadb105-server amazon-cloudwatch-agent
+
+          systemctl enable mariadb
+          systemctl start mariadb
+
+
+##########################################################
+# Application Load Balancer
+##########################################################
+
+  ApplicationLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+
+    Properties:
+
+      Name: Project-ALB
+
+      Scheme: internet-facing
+
+      Type: application
+
+      SecurityGroups:
+        - !Ref ALBSecurityGroup
+
+      Subnets:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+
+##########################################################
+# Target Group
+##########################################################
+
+  TargetGroup:
+
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+
+    Properties:
+
+      Name: Project-TG
+
+      Port: 80
+
+      Protocol: HTTP
+
+      VpcId: !Ref VPC
+
+      HealthCheckPath: /
+
+      HealthCheckProtocol: HTTP
+
+      TargetType: instance
+
+      Targets:
+
+        - Id: !Ref ApplicationInstance
+          Port: 80
+
+##########################################################
+# Listener
+##########################################################
+
+  Listener:
+
+    Type: AWS::ElasticLoadBalancingV2::Listener
+
+    Properties:
+
+      LoadBalancerArn: !Ref ApplicationLoadBalancer
+
+      Port: 80
+
+      Protocol: HTTP
+
+      DefaultActions:
+
+        - Type: forward
+
+          TargetGroupArn: !Ref TargetGroup
+
+
+##########################################################
+# SNS Topic
+##########################################################
+
+  AlarmSNSTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: Project-Alarm-Topic
+
+##########################################################
+# CPU Alarm
+##########################################################
+
+  CPUAlarm:
+    Type: AWS::CloudWatch::Alarm
+
+    Properties:
+
+      AlarmDescription: CPU Utilization Above 80 Percent
+
+      Namespace: AWS/EC2
+
+      MetricName: CPUUtilization
+
+      Statistic: Average
+
+      Period: 300
+
+      EvaluationPeriods: 1
+
+      Threshold: 80
+
+      ComparisonOperator: GreaterThanThreshold
+
+      AlarmActions:
+        - !Ref AlarmSNSTopic
+
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref ApplicationInstance
+
+##########################################################
+# Status Check Alarm
+##########################################################
+
+  StatusCheckAlarm:
+    Type: AWS::CloudWatch::Alarm
+
+    Properties:
+
+      AlarmDescription: EC2 Status Check Failed
+
+      Namespace: AWS/EC2
+
+      MetricName: StatusCheckFailed
+
+      Statistic: Maximum
+
+      Period: 300
+
+      EvaluationPeriods: 1
+
+      Threshold: 1
+
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+
+      AlarmActions:
+        - !Ref AlarmSNSTopic
+
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref ApplicationInstance
+
+
+
+##########################################################
+# CloudWatch Log Group - Nginx Access
+##########################################################
+
+  NginxAccessLogGroup:
+    Type: AWS::Logs::LogGroup
+
+    Properties:
+      LogGroupName: /aws/ec2/application-access
+      RetentionInDays: 30
+
+##########################################################
+# CloudWatch Log Group - Nginx Error
+##########################################################
+
+  NginxErrorLogGroup:
+    Type: AWS::Logs::LogGroup
+
+    Properties:
+      LogGroupName: /aws/ec2/application-error
+      RetentionInDays: 30
+
+##########################################################
+# CloudWatch Log Group - System Logs
+##########################################################
+
+  SystemLogGroup:
+    Type: AWS::Logs::LogGroup
+
+    Properties:
+      LogGroupName: /aws/ec2/system
+      RetentionInDays: 30
+
+##########################################################
+# SNS Email Subscription
+##########################################################
+
+  AlarmSubscription:
+    Type: AWS::SNS::Subscription
+
+    Properties:
+      Protocol: email
+      Endpoint: narangaditi5aws.2nd@gmail.com
+      TopicArn: !Ref AlarmSNSTopic
+
+
+##########################################################
+# Memory Utilization Alarm
+##########################################################
+
+  MemoryAlarm:
+    Type: AWS::CloudWatch::Alarm
+
+    Properties:
+
+      AlarmDescription: Memory Utilization Above 80 Percent
+
+      Namespace: CWAgent
+
+      MetricName: mem_used_percent
+
+      Statistic: Average
+
+      Period: 300
+
+      EvaluationPeriods: 1
+
+      Threshold: 80
+
+      ComparisonOperator: GreaterThanThreshold
+
+      AlarmActions:
+        - !Ref AlarmSNSTopic
+
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref ApplicationInstance
+
+##########################################################
+# Disk Utilization Alarm
+##########################################################
+
+  DiskAlarm:
+    Type: AWS::CloudWatch::Alarm
+
+    Properties:
+
+      AlarmDescription: Disk Utilization Above 80 Percent
+
+      Namespace: CWAgent
+
+      MetricName: disk_used_percent
+
+      Statistic: Average
+
+      Period: 300
+
+      EvaluationPeriods: 1
+
+      Threshold: 80
+
+      ComparisonOperator: GreaterThanThreshold
+
+      AlarmActions:
+        - !Ref AlarmSNSTopic
+
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref ApplicationInstance
+
+        - Name: path
+          Value: /
+
+        - Name: fstype
+          Value: xfs
+
+
+##########################################################
+# S3 Bucket for CloudTrail Logs
+##########################################################
+
+  CloudTrailBucket:
+    Type: AWS::S3::Bucket
+
+    Properties:
+
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+      VersioningConfiguration:
+        Status: Enabled
+
+##########################################################
+# Bucket Policy for CloudTrail
+##########################################################
+
+  CloudTrailBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+
+    Properties:
+
+      Bucket: !Ref CloudTrailBucket
+
+      PolicyDocument:
+
+        Version: "2012-10-17"
+
+        Statement:
+
+          - Sid: AWSCloudTrailAclCheck
+
+            Effect: Allow
+
+            Principal:
+              Service: cloudtrail.amazonaws.com
+
+            Action: s3:GetBucketAcl
+
+            Resource: !GetAtt CloudTrailBucket.Arn
+
+          - Sid: AWSCloudTrailWrite
+
+            Effect: Allow
+
+            Principal:
+              Service: cloudtrail.amazonaws.com
+
+            Action: s3:PutObject
+
+            Resource: !Sub "${CloudTrailBucket.Arn}/AWSLogs/${AWS::AccountId}/*"
+
+            Condition:
+
+              StringEquals:
+
+                s3:x-amz-acl: bucket-owner-full-control
+
+##########################################################
+# CloudTrail
+##########################################################
+
+  ProjectCloudTrail:
+    Type: AWS::CloudTrail::Trail
+
+    DependsOn: CloudTrailBucketPolicy
+
+    Properties:
+
+      TrailName: ProjectCloudTrail
+
+      S3BucketName: !Ref CloudTrailBucket
+
+      IsLogging: true
+
+      IncludeGlobalServiceEvents: true
+
+      IsMultiRegionTrail: true
+
+      EnableLogFileValidation: true
+
+
+##########################################################
+# IAM Role for Lambda
+##########################################################
+
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+
+    Properties:
+
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+
+        Statement:
+          - Effect: Allow
+
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+
+            Action:
+              - sts:AssumeRole
+
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+      Policies:
+
+        - PolicyName: PublishToSNS
+
+          PolicyDocument:
+
+            Version: "2012-10-17"
+
+            Statement:
+
+              - Effect: Allow
+
+                Action:
+                  - sns:Publish
+
+                Resource: !Ref AlarmSNSTopic
+
+##########################################################
+# Lambda Function
+##########################################################
+
+  SecurityNotificationLambda:
+    Type: AWS::Lambda::Function
+
+    Properties:
+
+      Runtime: python3.12
+
+      Handler: index.lambda_handler
+
+      Timeout: 30
+
+      Role: !GetAtt LambdaExecutionRole.Arn
+
+      Code:
+
+        ZipFile: |
+          import json
+          import boto3
+          import os
+
+          sns = boto3.client('sns')
+
+          def lambda_handler(event, context):
+
+              sns.publish(
+                  TopicArn=os.environ['TOPIC_ARN'],
+                  Subject="Security Alert",
+                  Message=json.dumps(event, indent=2)
+              )
+
+              return {
+                  "statusCode": 200
+              }
+
+      Environment:
+
+        Variables:
+
+          TOPIC_ARN: !Ref AlarmSNSTopic
+
+##########################################################
+# EventBridge Rule
+##########################################################
+
+  SecurityEventRule:
+    Type: AWS::Events::Rule
+
+    Properties:
+
+      Description: Detect Stop or Terminate EC2
+
+      EventPattern:
+
+        source:
+          - aws.ec2
+
+        detail-type:
+          - AWS API Call via CloudTrail
+
+        detail:
+
+          eventSource:
+            - ec2.amazonaws.com
+
+          eventName:
+            - StopInstances
+            - TerminateInstances
+
+      Targets:
+
+        - Arn: !GetAtt SecurityNotificationLambda.Arn
+
+          Id: LambdaTarget
+
+##########################################################
+# Permission for EventBridge
+##########################################################
+
+  LambdaPermission:
+
+    Type: AWS::Lambda::Permission
+
+    Properties:
+
+      Action: lambda:InvokeFunction
+
+      FunctionName: !Ref SecurityNotificationLambda
+
+      Principal: events.amazonaws.com
+
+      SourceArn: !GetAtt SecurityEventRule.Arn
+
+
+##########################################################
+# Backup Vault
+##########################################################
+
+  BackupVault:
+    Type: AWS::Backup::BackupVault
+
+    Properties:
+      BackupVaultName: ProjectBackupVault
+
+##########################################################
+# Backup Plan
+##########################################################
+
+  BackupPlan:
+    Type: AWS::Backup::BackupPlan
+
+    Properties:
+
+      BackupPlan:
+
+        BackupPlanName: DailyBackupPlan
+
+        BackupPlanRule:
+
+          - RuleName: DailyBackup
+
+            TargetBackupVault: !Ref BackupVault
+
+            ScheduleExpression: cron(0 2 * * ? *)
+
+            StartWindowMinutes: 60
+
+            CompletionWindowMinutes: 180
+
+            Lifecycle:
+
+              DeleteAfterDays: 30
+
+##########################################################
+# IAM Role for Backup
+##########################################################
+
+  BackupServiceRole:
+
+    Type: AWS::IAM::Role
+
+    Properties:
+
+      AssumeRolePolicyDocument:
+
+        Version: "2012-10-17"
+
+        Statement:
+
+          - Effect: Allow
+
+            Principal:
+
+              Service:
+                - backup.amazonaws.com
+
+            Action:
+              - sts:AssumeRole
+
+      ManagedPolicyArns:
+
+        - arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup
+
+##########################################################
+# Backup Selection
+##########################################################
+
+  BackupSelection:
+
+    Type: AWS::Backup::BackupSelection
+
+    Properties:
+
+      BackupPlanId: !Ref BackupPlan
+
+      BackupSelection:
+
+        SelectionName: EC2Backup
+
+        IamRoleArn: !GetAtt BackupServiceRole.Arn
+
+        Resources:
+
+          - !Sub arn:aws:ec2:${AWS::Region}:${AWS::AccountId}:instance/${ApplicationInstance}
+
+          - !Sub arn:aws:ec2:${AWS::Region}:${AWS::AccountId}:instance/${DatabaseInstance}
+
+##########################################################
+# Outputs
+##########################################################
+
+Outputs:
+
+  SNSTopicArn:
+    Description: SNS Topic ARN
+    Value: !Ref AlarmSNSTopic
+
+  LoadBalancerDNS:
+
+    Description: DNS Name of Application Load Balancer
+
+    Value: !GetAtt ApplicationLoadBalancer.DNSName
+
+  AccessLogGroup:
+
+    Description: Nginx Access Log Group
+
+    Value: !Ref NginxAccessLogGroup
+
+  ErrorLogGroup:
+
+    Description: Nginx Error Log Group
+
+    Value: !Ref NginxErrorLogGroup
+
+  SystemLogGroup:
+
+    Description: System Log Group
+
+    Value: !Ref SystemLogGroup
+
+  CloudTrailBucket:
+
+    Description: S3 Bucket storing CloudTrail logs
+
+    Value: !Ref CloudTrailBucket
+
+  CloudTrailName:
+
+    Description: CloudTrail Name
+
+    Value: !Ref ProjectCloudTrail
+
+  LambdaFunction:
+
+    Description: Lambda Function
+
+    Value: !Ref SecurityNotificationLambda
+
+  EventBridgeRule:
+
+    Description: EventBridge Rule
+
+    Value: !Ref SecurityEventRule
+
+  BackupVault:
+
+    Description: Backup Vault
+
+    Value: !Ref BackupVault
+
+  BackupPlan:
+
+    Description: Backup Plan
+
+    Value: !Ref BackupPlan
