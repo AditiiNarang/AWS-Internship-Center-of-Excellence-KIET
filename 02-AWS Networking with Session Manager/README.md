@@ -94,7 +94,7 @@ The architecture supports three access paths:
 
 ### Architecture Diagram
 
-![AWS Networking with Session Manager Architecture](./Architecture/aws-networking-session-manager-architecture.png)
+![AWS Networking with Session Manager Architecture](./Architecture/AWS%20Networking%20with%20Session%20Manager.png)
 
 ### Network Layout
 
@@ -389,7 +389,7 @@ Session Manager + VPC Endpoints
 
 For the complete commands used during implementation:
 
-[**View Commands.md**](./Commands.md)
+[**View Commands.md**](./Commands.md/)
 
 ---
 
@@ -502,23 +502,11 @@ Each access method can be verified independently.
 
 Detailed project resources are available below:
 
-### 📖 Theory
+### Theory
 
-[**Theory.pdf**](./Theory.pdf)
+[**Theory.pdf**](./Theory/)
 
 Contains the detailed theoretical concepts, networking explanation, architecture, implementation process, access scenarios, troubleshooting, and final summary.
-
-### 💻 Commands
-
-[**Commands.md**](./Commands.md)
-
-Contains the practical commands used for SSH access, Session Manager, SSM Agent verification, network checks, route verification, and AWS CLI operations.
-
-### 🏗️ Architecture
-
-**Architecture Diagram**
-
-Contains the complete architecture diagram representing the VPC, public/private subnets, Internet Gateway, NAT Gateway, Bastion Host, private EC2, Systems Manager, and VPC Endpoints.
 
 ---
 
