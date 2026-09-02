@@ -242,7 +242,7 @@ Each project built upon concepts learned in the previous one, resulting in a com
 
 # Projects Overview
 
-## Project 01 — Passwordless SSH Authentication
+## [Project 01 — Passwordless SSH Authentication](./01-Passwordless-SSH-Authentication/)
 
 Learned how SSH Public Key Authentication enables secure, passwordless access to Linux servers while reducing the risks associated with password-based authentication.
 
