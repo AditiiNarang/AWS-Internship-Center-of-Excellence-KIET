@@ -20,7 +20,7 @@
 - [Security](#security)
 - [Result](#result)
 - [Project Information](#project-information)
-  - [Author](#author)
+- [Author](#author)
 
 ## Overview
 
@@ -184,11 +184,15 @@ This demonstrates how SSH public-key authentication can provide secure and autom
 
 ## Project Information
 
-**Project:** Passwordless SSH Authentication Between Two Linux/EC2 Servers
-**Platform:** AWS EC2
-**Technology:** Linux, SSH
-**Authentication:** SSH Public-Key Authentication
-**Internship:** AWS Internship — Center of Excellence, KIET
+## 📌 Project Information
+
+| **Field** | **Details** |
+|---|---|
+| **Project** | Passwordless SSH Authentication Between Two Linux/EC2 Servers |
+| **Platform** | AWS EC2 |
+| **Technology** | Linux, SSH |
+| **Authentication** | SSH Public-Key Authentication |
+| **Internship** | AWS Internship — Center of Excellence, KIET |
 
 ---
 
