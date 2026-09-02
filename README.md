@@ -264,7 +264,7 @@ Learned how SSH Public Key Authentication enables secure, passwordless access to
 
 ---
 
-## Project 02: AWS Networking with Session Manager
+## [Project 02: AWS Networking with Session Manager](./02-AWS%20Networking%20with%20Session%20Manager/)
 
 Designed and implemented a secure AWS networking environment consisting of public and private subnets while securely accessing EC2 instances using AWS Systems Manager Session Manager.
 
