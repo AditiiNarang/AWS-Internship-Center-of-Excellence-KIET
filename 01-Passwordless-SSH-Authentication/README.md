@@ -233,7 +233,7 @@ The implementation involves the following steps:
 
 For the complete list of commands used during the implementation, see:
 
-**[Commands.md](./Commands.md)**
+**[Commands.md](./Commands.md/)**
 
 ---
 
