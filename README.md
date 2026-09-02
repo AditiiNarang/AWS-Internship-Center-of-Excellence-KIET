@@ -33,7 +33,7 @@
   - [Programming & Automation](#programming--automation)
 - [Learning Journey](#learning-journey)
 - [Projects Overview](#projects-overview)
-  - [Project 01 - Passwordless SSH Authentication](#project-01---passwordless-ssh-authentication)
+  - [Project 01 - Passwordless SSH Authentication](#project-01--passwordless-ssh-authentication)
   - [Project 02 - AWS Networking with Session Manager](#project-02---aws-networking-with-session-manager)
   - [Project 03 - Self-Healing Infrastructure](#project-03---self-healing-infrastructure)
   - [Project 04 - AWS Automation using Python & Boto3](#project-04---aws-automation-using-python--boto3)
