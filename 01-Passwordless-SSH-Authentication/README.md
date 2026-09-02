@@ -4,21 +4,23 @@
 
 ## Table of Contents
 
-- [Overview](#-overview)
-- [Objective](#-objective)
-- [Architecture](#️-architecture)
-- [Architecture Diagram](#architecture-diagram)
-- [Authentication Concept](#authentication-concept)
-- [Workflow](#-workflow)
-- [AWS Environment](#️-aws-environment)
-- [Key Components](#-key-components)
-- [Implementation](#️-implementation)
-- [Documentation](#-documentation)
-- [Applications](#-applications)
-- [Security](#-security)
-- [Result](#-result)
-- [Project Information](#-project-information)
-- [Author](#-author)
+## Table of Contents
+
+- [Overview](#overview)
+- [Objective](#objective)
+- [Architecture](#architecture)
+  - [Architecture Diagram](#architecture-diagram)
+  - [Authentication Concept](#authentication-concept)
+- [Workflow](#workflow)
+- [AWS Environment](#aws-environment)
+- [Key Components](#key-components)
+- [Implementation](#implementation)
+- [Documentation](#documentation)
+- [Applications](#applications)
+- [Security](#security)
+- [Result](#result)
+- [Project Information](#project-information)
+  - [Author](#author)
 
 ## Overview
 
