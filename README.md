@@ -242,7 +242,7 @@ Each project built upon concepts learned in the previous one, resulting in a com
 
 # Projects Overview
 
-## [Project 01 — Passwordless SSH Authentication](./01-Passwordless-SSH-Authentication/)
+## [Project 01: Passwordless SSH Authentication](./01-Passwordless-SSH-Authentication/)
 
 Learned how SSH Public Key Authentication enables secure, passwordless access to Linux servers while reducing the risks associated with password-based authentication.
 
@@ -264,7 +264,7 @@ Learned how SSH Public Key Authentication enables secure, passwordless access to
 
 ---
 
-## Project 02 — AWS Networking with Session Manager
+## Project 02: AWS Networking with Session Manager
 
 Designed and implemented a secure AWS networking environment consisting of public and private subnets while securely accessing EC2 instances using AWS Systems Manager Session Manager.
 
@@ -289,7 +289,7 @@ Designed and implemented a secure AWS networking environment consisting of publi
 
 ---
 
-## Project 03 — Self-Healing Infrastructure
+## Project 03: Self-Healing Infrastructure
 
 Built an event-driven automation workflow capable of automatically recovering EC2 instances using Amazon EventBridge and AWS Systems Manager Automation.
 
@@ -309,7 +309,7 @@ Built an event-driven automation workflow capable of automatically recovering EC
 
 ---
 
-## Project 04 — AWS Automation using Python & Boto3
+## Project 04: AWS Automation using Python & Boto3
 
 Automated common AWS operations using Python and the AWS SDK (Boto3).
 
@@ -330,7 +330,7 @@ Automated common AWS operations using Python and the AWS SDK (Boto3).
 
 ---
 
-## Project 05 — Secure Two-Tier AWS Architecture using CloudFormation
+## Project 05: Secure Two-Tier AWS Architecture using CloudFormation
 
 Designed and deployed a production-oriented AWS infrastructure entirely through Infrastructure as Code using AWS CloudFormation.
 
