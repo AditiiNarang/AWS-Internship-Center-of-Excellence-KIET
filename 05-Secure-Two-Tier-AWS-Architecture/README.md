@@ -7,19 +7,25 @@
 
 ## Table of Contents
 
-* [Overview](#overview)
-* [Objective](#objective)
-* [Architecture](#architecture)
-* [Workflow](#workflow)
-* [AWS Services Used](#aws-services-used)
-* [Implementation Summary](#implementation-summary)
-* [Testing and Verification](#testing-and-verification)
-* [Expected Result](#expected-result)
-* [Security Considerations](#security-considerations)
-* [Documentation](#documentation)
-* [Project Information](#project-information)
-* [LinkedIn Post](#linkedin-post)
-* [Author](#author)
+- [Overview](#overview)
+- [Objective](#objectives)
+- [Architecture](#architecture)
+    - [Architecture Flow](#architecture-flow)
+- [AWS Services Used](#aws-services-used)
+- [Infrastructure Components](#infrastructure-components)
+- [Security and Access](#security-and-access)
+- [Monitoring and Auditing](#monitoring-and-auditing)
+- [Security Event Automation](#security-event-automation)
+- [Backup](#backup)
+- [Infrastructure as Code Workflow](#infrastructure-as-code-workflow)
+- [Deployment](#deployment)
+- [Verification](#verification)
+- [Key Learnings](#key-learnings)
+- [Security Considerations](#security-considerations)
+- [Documentation](#documentation)
+- [Project Information](#project-information)
+- [LinkedIn Post](#linkedin-post)
+- [Author](#author)
 
 ---
 
