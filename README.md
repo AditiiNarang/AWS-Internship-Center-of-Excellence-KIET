@@ -41,6 +41,7 @@
 - [Key Learning Outcomes](#key-learning-outcomes)
 - [Future Enhancements](#future-enhancements)
 - [References](#references)
+- [LinkedIn Post](#linkedin-post)
 - [Support](#support)
 - [Author](#author)
 
@@ -403,6 +404,12 @@ These projects helped bridge the gap between theoretical cloud concepts and thei
 - AWS Skill Builder
 - Linux Manual Pages
 - OpenSSH Documentation
+
+---
+
+# LinkedIn Post
+
+[𝑺𝒖𝒄𝒄𝒆𝒔𝒔𝒇𝒖𝒍𝒍𝒚 𝑪𝒐𝒎𝒑𝒍𝒆𝒕𝒆𝒅 𝑨𝑾𝑺 𝑺𝒖𝒎𝒎𝒆𝒓 𝑰𝒏𝒕𝒆𝒓𝒏𝒔𝒉𝒊𝒑](https://www.linkedin.com/posts/aditiinarang_aws-awsacademy-cloudcomputing-activity-7478321814427815936-rDLT)
 
 ---
 
