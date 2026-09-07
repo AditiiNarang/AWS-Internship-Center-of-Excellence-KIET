@@ -574,5 +574,3 @@ A key concept demonstrated by this project is that a subnet being called **priva
 ## Author
 
 **Aditi Narang**
-
-```
