@@ -27,6 +27,7 @@
 - [Security](#security)
 - [Result](#result)
 - [Project Information](#project-information)
+- [LinkedIn Post](#linkedin-post)
 - [Author](#author)
 
 ---
@@ -611,6 +612,12 @@ Passwordless SSH
 | **Advanced SSH** | SSH Agent Forwarding, ProxyJump |
 | **Network** | EC2 Private IP / Security Groups |
 | **Internship** | AWS Internship — Center of Excellence, KIET |
+
+---
+
+## LinkedIn Post
+
+[𝘗𝘢𝘴𝘴𝘸𝘰𝘳𝘥𝘭𝘦𝘴𝘴 𝘈𝘶𝘵𝘩𝘦𝘯𝘵𝘪𝘤𝘢𝘵𝘪𝘰𝘯 using 𝘚𝘚𝘏 𝘗𝘶𝘣𝘭𝘪𝘤 𝘒𝘦𝘺 𝘈𝘶𝘵𝘩𝘦𝘯𝘵𝘪𝘤𝘢𝘵𝘪𝘰𝘯](https://www.linkedin.com/posts/aditiinarang_aws-awsinternship-cloudcomputing-activity-7474166493228908544-AFvK)
 
 ---
 
