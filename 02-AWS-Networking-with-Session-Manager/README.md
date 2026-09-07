@@ -23,6 +23,7 @@
 - [Documentation](#documentation)
 - [Result](#result)
 - [Project Information](#project-information)
+- [LinkedIn Post](#linkedin-post)
 - [Author](#author)
 
 ---
@@ -561,6 +562,12 @@ A key concept demonstrated by this project is that a subnet being called **priva
 | **Focus**          | Secure access to private EC2 instances                                     |
 | **Access Methods** | Bastion Host, Session Manager with NAT, Session Manager with VPC Endpoints |
 | **Internship**     | AWS Internship — Center of Excellence, KIET                                |
+
+---
+
+## LinkedIn Post
+
+[𝐀𝐖𝐒 𝐒𝐲𝐬𝐭𝐞𝐦𝐬 𝐌𝐚𝐧𝐚𝐠𝐞𝐫 (𝐒𝐒𝐌) 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐌𝐚𝐧𝐚𝐠𝐞𝐫 𝐟𝐨𝐫 𝐢𝐧𝐬𝐭𝐚𝐧𝐜𝐞 𝐚𝐜𝐜𝐞𝐬𝐬 𝐰𝐢𝐭𝐡𝐨𝐮𝐭 𝐫𝐞𝐥𝐲𝐢𝐧𝐠 𝐨𝐧 𝐒𝐒𝐇](https://www.linkedin.com/posts/aditiinarang_aws-awsinternship-cloudcomputing-activity-7475524197901885440-2Iac)
 
 ---
 
