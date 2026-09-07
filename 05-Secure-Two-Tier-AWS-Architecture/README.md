@@ -2,7 +2,28 @@
 
 > **AWS Internship — Center of Excellence, KIET**
 
-## 📌 Overview
+
+---
+
+## Table of Contents
+
+* [Overview](#overview)
+* [Objective](#objective)
+* [Architecture](#architecture)
+* [Workflow](#workflow)
+* [AWS Services Used](#aws-services-used)
+* [Implementation Summary](#implementation-summary)
+* [Testing and Verification](#testing-and-verification)
+* [Expected Result](#expected-result)
+* [Security Considerations](#security-considerations)
+* [Documentation](#documentation)
+* [Project Information](#project-information)
+* [LinkedIn Post](#linkedin-post)
+* [Author](#author)
+
+---
+
+## Overview
 
 This project demonstrates the design and deployment of a **secure, scalable, and production-oriented Two-Tier AWS Architecture** using **AWS CloudFormation**.
 
@@ -12,7 +33,7 @@ The architecture integrates AWS networking, compute, load balancing, monitoring,
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 The main objectives of this project are to:
 
@@ -29,7 +50,7 @@ The main objectives of this project are to:
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The project follows a **Two-Tier Architecture** consisting primarily of:
 
@@ -74,7 +95,7 @@ The infrastructure is deployed across **multiple Availability Zones** to improve
 
 ---
 
-## ☁️ AWS Services Used
+## AWS Services Used
 
 | AWS Service                   | Purpose                                         |
 | ----------------------------- | ----------------------------------------------- |
@@ -97,7 +118,7 @@ The infrastructure is deployed across **multiple Availability Zones** to improve
 
 ---
 
-## 🧱 Infrastructure Components
+## Infrastructure Components
 
 ### 1. AWS CloudFormation
 
@@ -176,7 +197,7 @@ The instances are configured with appropriate:
 
 ---
 
-## 🔐 Security and Access
+## Security and Access
 
 Security is implemented through multiple AWS services and architectural controls.
 
@@ -196,7 +217,7 @@ Systems Manager enables secure instance management without requiring traditional
 
 ---
 
-## 📊 Monitoring and Auditing
+## Monitoring and Auditing
 
 ### Amazon CloudWatch
 
@@ -220,7 +241,7 @@ This helps track:
 
 ---
 
-## 🚨 Security Event Automation
+## Security Event Automation
 
 The architecture uses an event-driven security notification workflow:
 
@@ -244,7 +265,7 @@ Amazon EventBridge detects relevant events and triggers AWS Lambda, which proces
 
 ---
 
-## 💾 Backup
+## Backup
 
 **AWS Backup** is configured to provide scheduled backups for EC2 instances.
 
@@ -256,7 +277,7 @@ This helps improve:
 
 ---
 
-## ⚙️ Infrastructure as Code Workflow
+## Infrastructure as Code Workflow
 
 The overall deployment process follows:
 
@@ -284,7 +305,7 @@ CloudFormation YAML Template
 
 ---
 
-## ▶️ Deployment
+## Deployment
 
 The infrastructure is deployed using an AWS CloudFormation YAML template.
 
@@ -321,7 +342,7 @@ aws cloudformation delete-stack \
 
 ---
 
-## 🧪 Verification
+## Verification
 
 After deployment, the following components can be verified:
 
@@ -344,7 +365,7 @@ After deployment, the following components can be verified:
 
 ---
 
-## 💡 Key Learnings
+## Key Learnings
 
 Through this project, I gained hands-on experience with:
 
@@ -364,7 +385,7 @@ Through this project, I gained hands-on experience with:
 
 ---
 
-## 🔒 Security Considerations
+## Security Considerations
 
 * Keep application EC2 instances in private subnets.
 * Avoid direct internet access to private application servers.
@@ -377,7 +398,7 @@ Through this project, I gained hands-on experience with:
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 Detailed project documentation is maintained separately from this README.
 
@@ -389,7 +410,7 @@ Recommended project documentation:
 
 ---
 
-## 📌 Project Information
+## Project Information
 
 | **Field**               | **Details**                                 |
 | ----------------------- | ------------------------------------------- |
@@ -410,8 +431,12 @@ Recommended project documentation:
 
 ---
 
-## 👩‍💻 Author
+## LinkedIn Post
 
-**Aditi Narang**
+[𝐒𝐞𝐜𝐮𝐫𝐞 𝐓𝐰𝐨-𝐓𝐢𝐞𝐫 𝐀𝐖𝐒 𝐀𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞 𝐮𝐬𝐢𝐧𝐠 𝐀𝐖𝐒 𝐂𝐥𝐨𝐮𝐝𝐅𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧](https://www.linkedin.com/posts/aditiinarang_aws-awsinternship-finalproject-activity-7477234658393358337-ccUI)
 
 ---
+
+## Author
+
+**Aditi Narang**
