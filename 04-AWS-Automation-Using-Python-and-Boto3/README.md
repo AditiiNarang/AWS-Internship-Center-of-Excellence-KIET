@@ -17,6 +17,7 @@
 * [Security Considerations](#security-considerations)
 * [Documentation](#documentation)
 * [Project Information](#project-information)
+* [LinkedIn Post](#linkedin-post)
 * [Author](#author)
 
 ---
@@ -508,8 +509,12 @@ Detailed project resources are available below:
 
 ---
 
+## LinkedIn Post
+
+[𝐀𝐖𝐒 𝐚𝐮𝐭𝐨𝐦𝐚𝐭𝐢𝐨𝐧 𝐮𝐬𝐢𝐧𝐠 𝐏𝐲𝐭𝐡𝐨𝐧 𝐚𝐧𝐝 𝐁𝐨𝐭𝐨3](https://www.linkedin.com/posts/aditiinarang_aws-boto3-python-activity-7476509876924411905-7JWD)
+
+---
+
 ## Author
 
 **Aditi Narang**
-
----

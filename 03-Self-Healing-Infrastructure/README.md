@@ -17,6 +17,7 @@
 - [Security Considerations](#security-considerations)
 - [Documentation](#documentation)
 - [Project Information](#project-information)
+- [LinkedIn Post](#linkedin-post)
 - [Author](#author)
 
 ---
@@ -338,8 +339,12 @@ Detailed project resources are available below:
 
 ---
 
+## LinkedIn Post
+
+[𝐒𝐞𝐥𝐟-𝐇𝐞𝐚𝐥𝐢𝐧𝐠 𝐈𝐧𝐟𝐫𝐚𝐬𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞 𝐮𝐬𝐢𝐧𝐠 𝐀𝐖𝐒 𝐬𝐞𝐫𝐯𝐢𝐜𝐞𝐬](https://www.linkedin.com/posts/aditiinarang_aws-awsinternship-cloudcomputing-activity-7476147487624351744-Oenf)
+
+---
+
 ## Author
 
 **Aditi Narang**
-
----
